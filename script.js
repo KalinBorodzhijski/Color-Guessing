@@ -1,13 +1,15 @@
 var allPlayground = document.getElementsByClassName("square");
-var colors = ["rgb(255, 0, 0)","rgb(255, 255, 0)","rgb(0, 255, 255)","rgb(255, 0, 255)","rgb(0, 255, 0)","rgb(0, 0, 255)"]
+var colors = generateRandomColors(6);
 var goalColor = document.getElementById("goal-color");
 var answerText = document.getElementById("answer");
-var pickedColor = colors[3];
 var header = document.getElementById("head");
+var newColorButton = document.getElementById("newColors");
+var gameOver = false;
 
+
+var pickedColor = pickColor();
 
 goalColor.textContent = pickedColor;
-
 
 for(var i=0; i < colors.length ; i++){
     allPlayground[i].style.backgroundColor = colors[i];
@@ -25,7 +27,9 @@ for(var i=0; i < colors.length ; i++){
 }
 
 function correctAnswer() {
+    gameOver = true;
     answerText.textContent = "Correct!"
+    newColorButton.textContent = "Try again?";
     for(var i=0; i < allPlayground.length ; i++){
         allPlayground[i].style.backgroundColor = pickedColor;
         header.style.backgroundColor = pickedColor;
@@ -33,11 +37,30 @@ function correctAnswer() {
 }
 
 
-function wrongAnswer() {
+function pickColor() {
+    var number = Math.floor(Math.random() * colors.length);
+    return colors[number];
+}
 
-
-    
+function generateRandomColors(colorCount){
+    var arr = [];
+    for(var i =0;i<colorCount;i++){
+        arr.push("rgb(" + Math.floor(Math.random() * 256) + ", " + Math.floor(Math.random() * 256) + ", " + Math.floor(Math.random() * 256) + ")");
+    }
+    return arr;
 }
 
 
-
+newColorButton.addEventListener("click",function(){
+    if(gameOver){
+        this.textContent = "New Colors"
+    }
+    
+    colors = generateRandomColors(6);
+    pickedColor = pickColor();
+    goalColor.textContent = pickedColor;
+    for(var i=0;i<colors.length;i++){
+        allPlayground[i].style.backgroundColor = colors[i];
+    }
+    header.style.backgroundColor = "#232323";
+});
