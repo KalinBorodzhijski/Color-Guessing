@@ -1,17 +1,15 @@
 var allPlayground = document.getElementsByClassName("square");
-var colors = generateRandomColors(6);
 var goalColor = document.getElementById("goal-color");
 var answerText = document.getElementById("answer");
 var header = document.getElementById("head");
 var newColorButton = document.getElementById("newColors");
 var easyLevel = document.getElementById("easyLevel");
 var hardLevel = document.getElementById("hardLevel");
+var colors = generateRandomColors(6);
 var gameOver = false;
 var isHard = true;
 
-
 var pickedColor = pickColor();
-
 goalColor.textContent = pickedColor;
 
 for(var i=0; i < colors.length ; i++){
@@ -28,7 +26,6 @@ for(var i=0; i < colors.length ; i++){
         }
     });
 }
-
 function correctAnswer() {
     gameOver = true;
     answerText.textContent = "Correct!"
@@ -69,14 +66,13 @@ newColorButton.addEventListener("click",function(){
     for(var i=0;i<colors.length;i++){
         allPlayground[i].style.backgroundColor = colors[i];
     }
-    header.style.backgroundColor = "#232323";
+    header.style.backgroundColor = "steelblue";
 });
 
 
 easyLevel.addEventListener("click",function(){
     if(isHard){
-            answerText.textContent = "";
-            header.style.backgroundColor = "#232323"
+        answerText.textContent = "";
             easyLevel.classList.add("selected");
             hardLevel.classList.remove("selected");
             isHard = false;
@@ -92,13 +88,12 @@ easyLevel.addEventListener("click",function(){
                 allPlayground[i].style.display = "none";
             }
         }
-    } 
+    }
 });
 
 hardLevel.addEventListener("click",function(){
     if(!isHard){
-            answerText.textContent = "";
-            header.style.backgroundColor = "#232323"
+        answerText.textContent = "";
             hardLevel.classList.add("selected");
             easyLevel.classList.remove("selected");
             isHard = true;
@@ -114,6 +109,5 @@ hardLevel.addEventListener("click",function(){
             }
             allPlayground[i].style.backgroundColor = colors[i];
         }
-        
     }
 });

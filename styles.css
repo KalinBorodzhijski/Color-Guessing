@@ -4,24 +4,64 @@
     margin: 1.66%;
     float: left;
     padding-bottom: 30%;
-    margin-top: 30px;
-    border-radius: 30px;
+    border-radius: 25px;
+    transition: background-color .7s;
+    
 }
 body {
-    font-family: 'Baloo 2', cursive;
+    font-family: "Montserrat","Avenir";
     background-color: #232323;
+    margin: 0;
 }
 .container {
     max-width: 600px;
     margin: 0 auto;
 }
-.wrong {
-    background-color: #232323;
-}
 .navbar {
     background-color: white;
     text-align: center;
+    height: 30px;
 }
 .selected {
-    background-color: blue;
+    background-color: steelblue;
+    color: white;
+}
+#head {
+    background-color: steelblue;
+    margin: 0;
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    line-height: 1.1;
+    padding: 20px 0;
+    
+}
+#goal-color {
+    display: block;
+    font-size: 200%;
+}
+button {
+    border: none;
+    background:none;
+    text-transform: uppercase;
+    height: 100%;
+    margin: 0;
+    color: steelblue;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: inherit;
+    outline: none;
+    transition: all .6s;
+}
+button:hover {
+    background-color: steelblue;
+    color: white;
+}
+#answer {
+    display: inline-block;
+    width: 20%;
+}
+.container {
+    margin-top: 15px;
 }
