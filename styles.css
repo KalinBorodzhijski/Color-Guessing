@@ -4,6 +4,8 @@
     margin: 1.66%;
     float: left;
     padding-bottom: 30%;
+    margin-top: 30px;
+    border-radius: 30px;
 }
 body {
     font-family: 'Baloo 2', cursive;
@@ -16,4 +18,10 @@ body {
 .wrong {
     background-color: #232323;
 }
-
+.navbar {
+    background-color: white;
+    text-align: center;
+}
+.selected {
+    background-color: blue;
+}
